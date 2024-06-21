@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: public
+
+website:
+  title: "Koblenz-Exkursion 2024"
+  navbar:
+    search: true
+    tools:
+      - icon: gitlab
+        href: https://gitlab.rlp.net/franziska.klemstein/oer/
+    left: 
+      - text: "Home"
+        href: index.qmd
+  sidebar: 
+    style: "floating"
+    contents:
+      - section: "Vorbereitung"
+        contents:
+          - erläuterung.qmd
+          - zeitschichten.qmd 
+          - rundgang.qmd
+          - inhalte.qmd
+      - section: "Durchführung"
+        contents:
+  page-footer:
+    center:
+      - text: "Impressum"
+        href: impressum.qmd
+      - text: "Lizenz"
+        href: lizenz.qmd
+      - text: "Datenschutz"
+        href: datenschutz.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+

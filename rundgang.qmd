@@ -1,0 +1,77 @@
+---
+title: "Rundgang"
+format:
+    html:
+        code-fold: true
+---
+
+
+## Stadtrundgang
+
+
+```{python}
+#| label: Koblenz
+#| fig-cap: "Rundgang durch Koblenz"
+# Import the script to supress warnings
+import supress_warnings
+from typing import Tuple, List, Dict
+import pandas as pd
+import folium
+pd.set_option('display.precision', 2)
+
+df_sites = pd.DataFrame(
+    [['Bhf Koblenz Stadtmitte', 50.35834, 7.59015],
+     ['Löhrrondel', 50.35722, 7.59175],
+     ['Pavillion', 50.35608, 7.59154],
+     ['Kreisverwaltungsamt Mayen-Koblenz', 50.35584, 7.59235],
+     ['Luftschutzbunker', 50.35419, 7.59489],
+     ['Allianzhaus', 50.35541, 7.59456],
+     ['Kaiserliche Oberpostdirektion', 50.35489,7.59618],
+     ['Theater Koblenz', 50.35821, 7.59888],
+     ['Clemensstraße, Wohnbebauung der 1950er', 50.35862, 7.59888],
+     ['Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank)', 50.35732492939022, 7.59921648700538],
+     ['Gymnasialstraße 4–8', 50.35992, 7.59804],
+     ['Jesuitenkirche', 50.36026, 7.59892],
+     ['Hochbunker Nagelsgasse', 50.36105, 7.60058]],
+    columns=pd.Index(['Objekt', 'latitude', 'longitude'], name='Koblenz')
+)
+
+avg_location = df_sites[['latitude', 'longitude']].mean()
+Karte_Koblenz = folium.Map(location=avg_location, zoom_start=18)
+
+for Objekt in df_sites.itertuples():
+  marker = folium.Marker(location=(Objekt.latitude, Objekt.longitude),
+                         tooltip=Objekt.Objekt)
+  marker.add_to(Karte_Koblenz)
+
+df_route = df_sites.copy()
+df_route.index.name = 'Reihenfolge'
+
+df_route_segments = df_route.join(
+    df_route.shift(-1), 
+    rsuffix='_next'
+).dropna()
+
+Karte_Koblenz = folium.Map(location=avg_location, zoom_start=13)
+
+for stop in df_route_segments.itertuples():
+    # marker for current stop
+    marker = folium.Marker(location=(stop.latitude, stop.longitude),
+                           tooltip=stop.Objekt)
+    # line for the route segment connecting current to next stop
+    line = folium.PolyLine(
+        locations=[(stop.latitude, stop.longitude), 
+                   (stop.latitude_next, stop.longitude_next)],
+        tooltip=f"{stop.Objekt} to {stop.Objekt_next}",
+    )
+    # add elements to the map
+    marker.add_to(Karte_Koblenz)
+    line.add_to(Karte_Koblenz)
+
+# maker for last stop wasn't added in for loop, so adding it now 
+folium.Marker(location=(stop.latitude_next, stop.longitude_next),
+              tooltip=stop.Objekt_next).add_to(Karte_Koblenz);
+
+Karte_Koblenz
+
+```
