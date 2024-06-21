@@ -1,0 +1,275 @@
+[
+  {
+    "objectID": "jupyter/Koblenz_Route.html",
+    "href": "jupyter/Koblenz_Route.html",
+    "title": "Koblenz-Exkursion 2024",
+    "section": "",
+    "text": "from typing import Tuple, List, Dict\n\n\nimport pandas as pd\n\n\nimport folium\n\n\npd.set_option('display.precision', 2)\n\n\ndf_sites = pd.DataFrame(\n    [['Bhf Koblenz Stadtmitte', 50.35834, 7.59015],\n     ['Löhrrondel', 50.35722, 7.59175],\n     ['Pavillion', 50.35608, 7.59154],\n     ['Kreisverwaltungsamt Mayen-Koblenz', 50.35584, 7.59235],\n     ['Luftschutzbunker', 50.35419, 7.59489],\n     ['Allianzhaus', 50.35541, 7.59456],\n     ['Kaiserliche Oberpostdirektion', 50.35489,7.59618],\n     ['Theater Koblenz', 50.35821, 7.59888],\n     ['Clemensstraße, Wohnbebauung der 1950er', 50.35862, 7.59888],\n     ['Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank)', 50.35732492939022, 7.59921648700538],\n     ['Gymnasialstraße 4–8', 50.35992, 7.59804],\n     ['Jesuitenkirche', 50.36026, 7.59892],\n     ['Hochbunker Nagelsgasse', 50.36105, 7.60058]],\n    columns=pd.Index(['Objekt', 'latitude', 'longitude'], name='Koblenz')\n)\n\ndf_sites\n\n\n\n  \n    \n\n\n\n\n\nKoblenz\nObjekt\nlatitude\nlongitude\n\n\n\n\n0\nBhf Koblenz Stadtmitte\n50.36\n7.59\n\n\n1\nLöhrrondel\n50.36\n7.59\n\n\n2\nPavillion\n50.36\n7.59\n\n\n3\nKreisverwaltungsamt Mayen-Koblenz\n50.36\n7.59\n\n\n4\nLuftschutzbunker\n50.35\n7.59\n\n\n5\nAllianzhaus\n50.36\n7.59\n\n\n6\nKaiserliche Oberpostdirektion\n50.35\n7.60\n\n\n7\nTheater Koblenz\n50.36\n7.60\n\n\n8\nClemensstraße, Wohnbebauung der 1950er\n50.36\n7.60\n\n\n9\nEhem. Reichsbankfiliale (heute: Deutsche Bunde...\n50.36\n7.60\n\n\n10\nGymnasialstraße 4–8\n50.36\n7.60\n\n\n11\nJesuitenkirche\n50.36\n7.60\n\n\n12\nHochbunker Nagelsgasse\n50.36\n7.60\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n    \n  \n\n\n\n\navg_location = df_sites[['latitude', 'longitude']].mean()\nKarte_Koblenz = folium.Map(location=avg_location, zoom_start=15)\n\n\nfor Objekt in df_sites.itertuples():\n  marker = folium.Marker(location=(Objekt.latitude, Objekt.longitude),\n                         tooltip=Objekt.Objekt)\n  marker.add_to(Karte_Koblenz)\n\nKarte_Koblenz\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\n\ndf_route = df_sites.copy()\ndf_route.index.name = 'Reihenfolge'\n\ndf_route\n\n\n\n  \n    \n\n\n\n\n\nKoblenz\nObjekt\nlatitude\nlongitude\n\n\nReihenfolge\n\n\n\n\n\n\n\n0\nBhf Koblenz Stadtmitte\n50.36\n7.59\n\n\n1\nLöhrrondel\n50.36\n7.59\n\n\n2\nPavillion\n50.36\n7.59\n\n\n3\nKreisverwaltungsamt Mayen-Koblenz\n50.36\n7.59\n\n\n4\nLuftschutzbunker\n50.35\n7.59\n\n\n5\nAllianzhaus\n50.36\n7.59\n\n\n6\nKaiserliche Oberpostdirektion\n50.35\n7.60\n\n\n7\nTheater Koblenz\n50.36\n7.60\n\n\n8\nClemensstraße, Wohnbebauung der 1950er\n50.36\n7.60\n\n\n9\nEhem. Reichsbankfiliale (heute: Deutsche Bunde...\n50.36\n7.60\n\n\n10\nGymnasialstraße 4–8\n50.36\n7.60\n\n\n11\nJesuitenkirche\n50.36\n7.60\n\n\n12\nHochbunker Nagelsgasse\n50.36\n7.60\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n    \n  \n\n\n\n\ndf_route_segments = df_route.join(\n    df_route.shift(-1),  # map each stop to its next stop\n    rsuffix='_next'\n).dropna()  # last stop has no \"next one\", so drop it\n\ndf_route_segments\n\n\n\n  \n    \n\n\n\n\n\nKoblenz\nObjekt\nlatitude\nlongitude\nObjekt_next\nlatitude_next\nlongitude_next\n\n\nReihenfolge\n\n\n\n\n\n\n\n\n\n\n0\nBhf Koblenz Stadtmitte\n50.36\n7.59\nLöhrrondel\n50.36\n7.59\n\n\n1\nLöhrrondel\n50.36\n7.59\nPavillion\n50.36\n7.59\n\n\n2\nPavillion\n50.36\n7.59\nKreisverwaltungsamt Mayen-Koblenz\n50.36\n7.59\n\n\n3\nKreisverwaltungsamt Mayen-Koblenz\n50.36\n7.59\nLuftschutzbunker\n50.35\n7.59\n\n\n4\nLuftschutzbunker\n50.35\n7.59\nAllianzhaus\n50.36\n7.59\n\n\n5\nAllianzhaus\n50.36\n7.59\nKaiserliche Oberpostdirektion\n50.35\n7.60\n\n\n6\nKaiserliche Oberpostdirektion\n50.35\n7.60\nTheater Koblenz\n50.36\n7.60\n\n\n7\nTheater Koblenz\n50.36\n7.60\nClemensstraße, Wohnbebauung der 1950er\n50.36\n7.60\n\n\n8\nClemensstraße, Wohnbebauung der 1950er\n50.36\n7.60\nEhem. Reichsbankfiliale (heute: Deutsche Bunde...\n50.36\n7.60\n\n\n9\nEhem. Reichsbankfiliale (heute: Deutsche Bunde...\n50.36\n7.60\nGymnasialstraße 4–8\n50.36\n7.60\n\n\n10\nGymnasialstraße 4–8\n50.36\n7.60\nJesuitenkirche\n50.36\n7.60\n\n\n11\nJesuitenkirche\n50.36\n7.60\nHochbunker Nagelsgasse\n50.36\n7.60\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n    \n  \n\n\n\n\nKarte_Koblenz = folium.Map(location=avg_location, zoom_start=13)\n\nfor stop in df_route_segments.itertuples():\n    # marker for current stop\n    marker = folium.Marker(location=(stop.latitude, stop.longitude),\n                           tooltip=stop.Objekt)\n    # line for the route segment connecting current to next stop\n    line = folium.PolyLine(\n        locations=[(stop.latitude, stop.longitude),\n                   (stop.latitude_next, stop.longitude_next)],\n        tooltip=f\"{stop.Objekt} to {stop.Objekt_next}\",\n    )\n    # add elements to the map\n    marker.add_to(Karte_Koblenz)\n    line.add_to(Karte_Koblenz)\n\n# maker for last stop wasn't added in for loop, so adding it now\nfolium.Marker(location=(stop.latitude_next, stop.longitude_next),\n              tooltip=stop.Objekt_next).add_to(Karte_Koblenz);\n\nKarte_Koblenz\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\n\nKarte_Koblenz.save('Route.html')"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mapping Koblenz",
+    "section": "",
+    "text": "Diese Seite dokumentiert die Exkursion “Mapping Koblenz” im Sommersemester 2024 an der Hochschule Mainz. Die Exkursion hat im Rahmen des Moduls “Raumbezogene Forschung im interdisziplinären Kontext” stattgefunden. Teilnehmende waren Master-Studierende aus der “Geoinformatik und Vermessung” sowie aus dem hochschulübergreifenden Studiengang “Digitale Methodik in den Geistes- und Kulturwissenschaften”.\nAlle Daten und weiteren Informationen zu dem Projekt sind unter: https://database.factgrid.de/wiki/FactGrid:Mapping_Koblenz zu finden. \n\n\n\nAnsicht von Koblenz, ca. 1570 (Braun & Hogenberg)\n\n\n\n\n\nAnsicht von Koblenz, ca. 1570 (Braun & Hogenberg)"
+  },
+  {
+    "objectID": "erläuterung.html",
+    "href": "erläuterung.html",
+    "title": "Erläuterung",
+    "section": "",
+    "text": "Tag 1: 25.06.2024\n\n\n\n\n\n\n\n\n\n9.32 Uhr\nBeginn in Koblenz, Treffpunkt Koblenz Bhf Koblenz-Stadtmitte\n\n\nBis 12 Uhr\nGemeinsame Tour durch die Koblenzer Altstadt\n\n\n12–13 Uhr\nMittagspause\n\n\n13–15 Uhr\nVorstellung verschiedener Gebäude, Orte und Themen // DMGK-Studierende (Impulsreferate)\n\n\n15–17 Uhr\nFreie Bearbeitung der Themen vor Ort\n\n\n17 Uhr\nAuswertung des Tages, offene Fragen und Vorbereitung des nächsten Tages\n\n\nca. 18 Uhr\nRückfahrt nach Mainz\n\n\nTag 2: 26.06.2024\n\n\n\n\n\n\n\n9.32 Uhr\nAnkunft in Koblenz\n\n\n10.00–12.30 Uhr\nStadtarchiv Koblenz\n\n\n12.30–13.30 Uhr\nMittagspause\n\n\n13.30–14.30 Uhr\nFreie Bearbeitung der Themen vor Ort\n\n\n14.30–15 Uhr\nAuswertung und Abschluss, Zusammenfassung der Exkursion und Ausblick auf Nachbereitung\n\n\n15.25 Uhr\nRückfahrt nach Mainz\n\n\n16:58 Uhr\nAnkunft in Mainz → RVL im Hörsaal Musikwissenschaft",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Erläuterung"
+    ]
+  },
+  {
+    "objectID": "erläuterung.html#ziele-der-exkursion",
+    "href": "erläuterung.html#ziele-der-exkursion",
+    "title": "Erläuterung",
+    "section": "",
+    "text": "Tag 1: 25.06.2024\n\n\n\n\n\n\n\n\n\n9.32 Uhr\nBeginn in Koblenz, Treffpunkt Koblenz Bhf Koblenz-Stadtmitte\n\n\nBis 12 Uhr\nGemeinsame Tour durch die Koblenzer Altstadt\n\n\n12–13 Uhr\nMittagspause\n\n\n13–15 Uhr\nVorstellung verschiedener Gebäude, Orte und Themen // DMGK-Studierende (Impulsreferate)\n\n\n15–17 Uhr\nFreie Bearbeitung der Themen vor Ort\n\n\n17 Uhr\nAuswertung des Tages, offene Fragen und Vorbereitung des nächsten Tages\n\n\nca. 18 Uhr\nRückfahrt nach Mainz\n\n\nTag 2: 26.06.2024\n\n\n\n\n\n\n\n9.32 Uhr\nAnkunft in Koblenz\n\n\n10.00–12.30 Uhr\nStadtarchiv Koblenz\n\n\n12.30–13.30 Uhr\nMittagspause\n\n\n13.30–14.30 Uhr\nFreie Bearbeitung der Themen vor Ort\n\n\n14.30–15 Uhr\nAuswertung und Abschluss, Zusammenfassung der Exkursion und Ausblick auf Nachbereitung\n\n\n15.25 Uhr\nRückfahrt nach Mainz\n\n\n16:58 Uhr\nAnkunft in Mainz → RVL im Hörsaal Musikwissenschaft",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Erläuterung"
+    ]
+  },
+  {
+    "objectID": "rundgang.html",
+    "href": "rundgang.html",
+    "title": "Rundgang",
+    "section": "",
+    "text": "Code\n# Import the script to supress warnings\nimport supress_warnings\nfrom typing import Tuple, List, Dict\nimport pandas as pd\nimport folium\npd.set_option('display.precision', 2)\n\ndf_sites = pd.DataFrame(\n    [['Bhf Koblenz Stadtmitte', 50.35834, 7.59015],\n     ['Löhrrondel', 50.35722, 7.59175],\n     ['Pavillion', 50.35608, 7.59154],\n     ['Kreisverwaltungsamt Mayen-Koblenz', 50.35584, 7.59235],\n     ['Luftschutzbunker', 50.35419, 7.59489],\n     ['Allianzhaus', 50.35541, 7.59456],\n     ['Kaiserliche Oberpostdirektion', 50.35489,7.59618],\n     ['Theater Koblenz', 50.35821, 7.59888],\n     ['Clemensstraße, Wohnbebauung der 1950er', 50.35862, 7.59888],\n     ['Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank)', 50.35732492939022, 7.59921648700538],\n     ['Gymnasialstraße 4–8', 50.35992, 7.59804],\n     ['Jesuitenkirche', 50.36026, 7.59892],\n     ['Hochbunker Nagelsgasse', 50.36105, 7.60058]],\n    columns=pd.Index(['Objekt', 'latitude', 'longitude'], name='Koblenz')\n)\n\navg_location = df_sites[['latitude', 'longitude']].mean()\nKarte_Koblenz = folium.Map(location=avg_location, zoom_start=18)\n\nfor Objekt in df_sites.itertuples():\n  marker = folium.Marker(location=(Objekt.latitude, Objekt.longitude),\n                         tooltip=Objekt.Objekt)\n  marker.add_to(Karte_Koblenz)\n\ndf_route = df_sites.copy()\ndf_route.index.name = 'Reihenfolge'\n\ndf_route_segments = df_route.join(\n    df_route.shift(-1), \n    rsuffix='_next'\n).dropna()\n\nKarte_Koblenz = folium.Map(location=avg_location, zoom_start=13)\n\nfor stop in df_route_segments.itertuples():\n    # marker for current stop\n    marker = folium.Marker(location=(stop.latitude, stop.longitude),\n                           tooltip=stop.Objekt)\n    # line for the route segment connecting current to next stop\n    line = folium.PolyLine(\n        locations=[(stop.latitude, stop.longitude), \n                   (stop.latitude_next, stop.longitude_next)],\n        tooltip=f\"{stop.Objekt} to {stop.Objekt_next}\",\n    )\n    # add elements to the map\n    marker.add_to(Karte_Koblenz)\n    line.add_to(Karte_Koblenz)\n\n# maker for last stop wasn't added in for loop, so adding it now \nfolium.Marker(location=(stop.latitude_next, stop.longitude_next),\n              tooltip=stop.Objekt_next).add_to(Karte_Koblenz);\n\nKarte_Koblenz\n\n\n/Users/franziskaklemstein/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\nRundgang durch Koblenz",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Rundgang"
+    ]
+  },
+  {
+    "objectID": "rundgang.html#stadtrundgang",
+    "href": "rundgang.html#stadtrundgang",
+    "title": "Rundgang",
+    "section": "",
+    "text": "Code\n# Import the script to supress warnings\nimport supress_warnings\nfrom typing import Tuple, List, Dict\nimport pandas as pd\nimport folium\npd.set_option('display.precision', 2)\n\ndf_sites = pd.DataFrame(\n    [['Bhf Koblenz Stadtmitte', 50.35834, 7.59015],\n     ['Löhrrondel', 50.35722, 7.59175],\n     ['Pavillion', 50.35608, 7.59154],\n     ['Kreisverwaltungsamt Mayen-Koblenz', 50.35584, 7.59235],\n     ['Luftschutzbunker', 50.35419, 7.59489],\n     ['Allianzhaus', 50.35541, 7.59456],\n     ['Kaiserliche Oberpostdirektion', 50.35489,7.59618],\n     ['Theater Koblenz', 50.35821, 7.59888],\n     ['Clemensstraße, Wohnbebauung der 1950er', 50.35862, 7.59888],\n     ['Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank)', 50.35732492939022, 7.59921648700538],\n     ['Gymnasialstraße 4–8', 50.35992, 7.59804],\n     ['Jesuitenkirche', 50.36026, 7.59892],\n     ['Hochbunker Nagelsgasse', 50.36105, 7.60058]],\n    columns=pd.Index(['Objekt', 'latitude', 'longitude'], name='Koblenz')\n)\n\navg_location = df_sites[['latitude', 'longitude']].mean()\nKarte_Koblenz = folium.Map(location=avg_location, zoom_start=18)\n\nfor Objekt in df_sites.itertuples():\n  marker = folium.Marker(location=(Objekt.latitude, Objekt.longitude),\n                         tooltip=Objekt.Objekt)\n  marker.add_to(Karte_Koblenz)\n\ndf_route = df_sites.copy()\ndf_route.index.name = 'Reihenfolge'\n\ndf_route_segments = df_route.join(\n    df_route.shift(-1), \n    rsuffix='_next'\n).dropna()\n\nKarte_Koblenz = folium.Map(location=avg_location, zoom_start=13)\n\nfor stop in df_route_segments.itertuples():\n    # marker for current stop\n    marker = folium.Marker(location=(stop.latitude, stop.longitude),\n                           tooltip=stop.Objekt)\n    # line for the route segment connecting current to next stop\n    line = folium.PolyLine(\n        locations=[(stop.latitude, stop.longitude), \n                   (stop.latitude_next, stop.longitude_next)],\n        tooltip=f\"{stop.Objekt} to {stop.Objekt_next}\",\n    )\n    # add elements to the map\n    marker.add_to(Karte_Koblenz)\n    line.add_to(Karte_Koblenz)\n\n# maker for last stop wasn't added in for loop, so adding it now \nfolium.Marker(location=(stop.latitude_next, stop.longitude_next),\n              tooltip=stop.Objekt_next).add_to(Karte_Koblenz);\n\nKarte_Koblenz\n\n\n/Users/franziskaklemstein/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\nRundgang durch Koblenz",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Rundgang"
+    ]
+  },
+  {
+    "objectID": "inhalte.html",
+    "href": "inhalte.html",
+    "title": "Inhalte",
+    "section": "",
+    "text": "2011 in Betrieb genommen\nVerbindung zur Innenstadt\nÜberlegungen zu einem solchen Haltepunkt gehen bereits auf die 1930er Jahre zurück\nim Rahmen des Verkehrskonzeptes der BUGA 2011\nwährend Bauzeit: Überlegung zu einem direkten Anschluss an das Löhr-Center; Entscheidung dagegen, um die Kaufkraft in der Löhrstraße zu sehr zu minimieren  (Quelle: Rhein-Zeitung vom 05.10.07 sowie: Prof. Dr. Joachim Hofmann-Göttig)\n\n\n\n\nHolger Weinandt, Plan des Schienenhaltepunkts Koblenz-Mitte",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#startpunkt-bahnhof-stadtmitte",
+    "href": "inhalte.html#startpunkt-bahnhof-stadtmitte",
+    "title": "Inhalte",
+    "section": "",
+    "text": "2011 in Betrieb genommen\nVerbindung zur Innenstadt\nÜberlegungen zu einem solchen Haltepunkt gehen bereits auf die 1930er Jahre zurück\nim Rahmen des Verkehrskonzeptes der BUGA 2011\nwährend Bauzeit: Überlegung zu einem direkten Anschluss an das Löhr-Center; Entscheidung dagegen, um die Kaufkraft in der Löhrstraße zu sehr zu minimieren  (Quelle: Rhein-Zeitung vom 05.10.07 sowie: Prof. Dr. Joachim Hofmann-Göttig)\n\n\n\n\nHolger Weinandt, Plan des Schienenhaltepunkts Koblenz-Mitte",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#station-1-löhrrondell-und-löhr-center",
+    "href": "inhalte.html#station-1-löhrrondell-und-löhr-center",
+    "title": "Inhalte",
+    "section": "Station 1: Löhrrondell und Löhr-Center",
+    "text": "Station 1: Löhrrondell und Löhr-Center\n„Am Löhrrondell ist die von 1900 bis 1903 erbaute neuromanische Herz-Jesu-Kirche stadtbildprägend. Ursprünglich befand sich in diesem Bereich ein Abschnitt der barocken Stadtbefestigung. Diese wurde im letzten Drittel des 18. Jahrhunderts aufgegeben. Die Bebauung setzte erst mit dem Aufschwung der Schloßstraße um 1850 ein. Die Originalbebauung wurde 1944 komplett zerstört. Lediglich das katholische Gotteshaus wurde in leicht veränderter Form wiederaufgebaut. Bis weit in die 1980er-Jahre hinein war das komplette Areal vor allem von Provisorien geprägt. Nachdem die Trümmer weggeräumt waren, entstand ein großer Parkplatz. Dieser verband das Löhrrondell mit der Fischelstraße, von der heute im Bereich der Weißer Gasse nur noch ein kurzes Teilstück erhalten ist. Die Fischelstraße, die ihren Namen von einem früheren Beigeordneten der Stadt hat, wurde einst Eisenbahnstraße genannt. Sie war ursprünglich eine wichtige Verbindung zum einstigen Rheinbahnhof. In der Fischelstraße, deren Bebauung ebenfalls 1944 in weiten Teilen zerstört wurde, gab es auch ein Hotel. Im Zuge der Neugestaltung der innerstädtischen Verkehrsachsen wurde der Straßenzug in den 1960er-Jahren in weiten Teilen beseitigt. Im Bereich des Löhrrondells und der angrenzenden Löhrstraße verlief die römische Fernstraße von Mainz nach Köln. Hier gab es nicht nur einen Handwerkerbezirk, sondern auch ein spätantik-frühmittelalterliches Gräberfeld, das 1990 bei Bauarbeiten entdeckt wurde. Komplett neu gestaltet wurde das Löhrrondell zur 2000-Jahr-Feier der Stadt Koblenz und zur Bundesgartenschau 2011.” (Quelle Stadt Koblenz)\nDas Löhr-Center ist ein dreigeschossiges Einkaufzentrum mit ca. 130 Geschäften. Es wurde 1984 eröffnet und wird von der ECE Projektmanagement GmbH & Co. KG betrieben. Am 16. September 1982 erfolgte die Grundsteinlegung, 1984 erfolgte die Eröffnung. 1993 und 1994 wurde der Zentrumsbau erweitert und optimiert, 2006-2008 erfolgten Veränderungen an der Beleuchtung. 2016–2017 erfolgte ein erneuter Umbau, der vor allem eine Erneuerung des Bodens und eine optische Erneuerung umfasste.\nDer Bau sorgte in den 1980er Jahren für Diskussionen in der Politik und Stadtbevölkerung, so die Rhein-Zeitung vom 25. März 2014. Beim Umbau 2016/17 wurde Asbest in Fassadenplatten im Eingangsbereich festgestellt. Dies führte zu einer kurzzeitigen Sperrung des Gebäudes, um die Schadstoffe fachgerecht zu entsorgen. (siehe: Rhein-Zeitung vom 19. Oktober 2016)\n\n\n\nLöhr-Center von außen. Aufgenommen von Immanuel Giel, 2011.\n\n\n\n\n\nLöhr-Center, Innenansicht, 2007.\n\n\n\n\n\nLöhr-Center, Innenansicht, 2020.",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#station-2-pavillon",
+    "href": "inhalte.html#station-2-pavillon",
+    "title": "Inhalte",
+    "section": "Station 2: Pavillon",
+    "text": "Station 2: Pavillon\n\nArchitekt: Otto Schönhagen (1885–1954)\nNutzung: Verkaufspavillon bis 2011, 2013 Umbau durch Koblenzer Architekturbüro Thillmann zu Restaurant, 2016 Leerstand  Quelle: KuLaDig, Kultur.Landschaft.Digital\neingetragenes Denkmal; Eintrag in Denkmalliste (Stand: 14.7.2020): „Verkaufspavillon für Tabakwaren“ mit darunterliegender öffentlicher Toilettenanlage, 1950, Arch. Otto Schönhagen, Koblenz; weitgehend durchfensterte halbrunde Stahlkonstruktion mit weit überkragendem Flachdach; bauzeitliche Ausstattung”\n\n\n\n\nWartesälchen, 2016.",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#station-3-kreisverwaltungsamt-mayen-koblenz",
+    "href": "inhalte.html#station-3-kreisverwaltungsamt-mayen-koblenz",
+    "title": "Inhalte",
+    "section": "Station 3: Kreisverwaltungsamt Mayen-Koblenz",
+    "text": "Station 3: Kreisverwaltungsamt Mayen-Koblenz",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#luftschutzbunker",
+    "href": "inhalte.html#luftschutzbunker",
+    "title": "Inhalte",
+    "section": "Luftschutzbunker",
+    "text": "Luftschutzbunker",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#allianzhaus",
+    "href": "inhalte.html#allianzhaus",
+    "title": "Inhalte",
+    "section": "Allianzhaus",
+    "text": "Allianzhaus",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#kaiserliche-oberpostdirektion",
+    "href": "inhalte.html#kaiserliche-oberpostdirektion",
+    "title": "Inhalte",
+    "section": "Kaiserliche Oberpostdirektion",
+    "text": "Kaiserliche Oberpostdirektion",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#theater-koblenz",
+    "href": "inhalte.html#theater-koblenz",
+    "title": "Inhalte",
+    "section": "Theater Koblenz",
+    "text": "Theater Koblenz",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#clemensstraße-wohnbebauung-1950er",
+    "href": "inhalte.html#clemensstraße-wohnbebauung-1950er",
+    "title": "Inhalte",
+    "section": "Clemensstraße, Wohnbebauung 1950er",
+    "text": "Clemensstraße, Wohnbebauung 1950er",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#ehemalige-reichsbankfiliale",
+    "href": "inhalte.html#ehemalige-reichsbankfiliale",
+    "title": "Inhalte",
+    "section": "Ehemalige Reichsbankfiliale",
+    "text": "Ehemalige Reichsbankfiliale",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#gymnasialstraße-48",
+    "href": "inhalte.html#gymnasialstraße-48",
+    "title": "Inhalte",
+    "section": "Gymnasialstraße 4–8",
+    "text": "Gymnasialstraße 4–8",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#jesuitenkirche",
+    "href": "inhalte.html#jesuitenkirche",
+    "title": "Inhalte",
+    "section": "Jesuitenkirche",
+    "text": "Jesuitenkirche",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "inhalte.html#hochbunker-nagelsgasse",
+    "href": "inhalte.html#hochbunker-nagelsgasse",
+    "title": "Inhalte",
+    "section": "Hochbunker Nagelsgasse",
+    "text": "Hochbunker Nagelsgasse\n\n\n\nHolger Weinandt, Plan des Schienenhaltepunkts Koblenz-Mitte\nLöhr-Center von außen. Aufgenommen von Immanuel Giel, 2011.\nLöhr-Center, Innenansicht, 2007.\nLöhr-Center, Innenansicht, 2020.\nWartesälchen, 2016.",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Inhalte"
+    ]
+  },
+  {
+    "objectID": "zeitschichten.html",
+    "href": "zeitschichten.html",
+    "title": "Zeitschichten",
+    "section": "",
+    "text": "„Das römische Kastell „Confluentes“ an der Mündung der Mosel in den Rhein, zu Anfang des 4. Jahrhunderts errichtet, fiel nach mehreren Jahrhunderten der Reichsunmittelbarkeit im Jahr 1018 an den Trierer Erzbischof. […] Koblenz überflügelte Trier und schwang sich zur Residenzstadt empor, was in der Anlage der Neustadt und im Bau des Schlosses (1786) durch den letzten Kurfürsten Clemens Wenzeslaus seinen sinnfälligen Ausdruck fand.” (Quelle: Stadtgeschichte, Stadt Koblenz)",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Zeitschichten"
+    ]
+  },
+  {
+    "objectID": "zeitschichten.html#die-zeit-der-französischen-herrschaft",
+    "href": "zeitschichten.html#die-zeit-der-französischen-herrschaft",
+    "title": "Zeitschichten",
+    "section": "Die Zeit der französischen Herrschaft",
+    "text": "Die Zeit der französischen Herrschaft\nNach der Besetzung der Stadt durch französische Revolutionstruppen und der Flucht des letzten Kurfürsten Clemens Wenzeslaus inklusive eines Großteils seiner Beamten im Oktober 1794, gehörte Koblenz ab 1801 zu Frankreich und war zur Hauptstadt des Rhein-Mosel-Departements ernannt worden. Unmittelbar nach der Besetzung von Koblenz bildeten die Franzosen eine Kommission aus Mitgliedern des Stadtrats, die in kurzer Zeit ein vollständiges Verzeichnis aller Häuser und ihrer Bewohner erstellte, wodurch die Planung und Durchführung der Unterbringung von Soldaten auf verfügbare Unterkünfte ermöglicht wurde. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 27.)\nDie Zeit der französischen Herrschaft in Koblenz brachte u.a. eine Neuordnung der Verwaltung mit sich. Zu dieser gehörte die Umgestaltung der Zoll-, Steuer- und Finanzverwaltung, der diversen Güterverwaltungen, des Post- und Justizwesens, der Polizei, der Schul- und Kirchenorganisationen. In allen diesen Bereuchen wurde seit 1798 schrittweise die französische Gesetzgebung eingeführt. Dies bedeutete, dass neue Institutionen geschaffen, neues Personal rekrutiert und neue Verfahrensregeln eingeführt werden mussten. Der Bruch mit dem Althergebrachten war gravierend, und die Einführung der neuen Staats- und Gesellschaftsordnung verlief alles andere als reibungslos. Vor allem an den Stellen nicht, an denen die Eingriffe die traditionellen Lebensweisen und herkömmlichen sozialen Ordnungsmuster betraf. So zum Beispiel bei der Einführung der allgemeinen Rechtsgleichheit. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 33.)\nDer politische Neuanfang ging für Koblenz mit einem deutlichen Bevölkerungswachstum einher und war mit erheblichen gesellschaftlichen Umschichtungen verbunden. Während die Bevölkerungszahl 1798 nur bei 7309 lag, stieg sie in den Folgejahren rasch auf 10.190 Personen an. Der Anstieg beruhte zum einen auf einem Geburtenüberschuss und zum anderen auf starke Zuwanderungsbewegungen. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 37.)\nDie französische Zeit bewirkte in Koblenz nachhaltige Veränderungen im Denken und Handeln der Menschen. Unübersehbar war die Tendenz zur Verbürgerlichung des politischen, wirtschaftlichen und kulturellen Lebens. Es waren nicht mehr wie in residenzstädtischer Zeit der kurfürstliche Hof, der Adel und der Klerus, die die Maßstäbe setzten, sondern die bürgerliche Schicht aus Beamten, Kaufleuten und Unternehmern. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 45.)",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Zeitschichten"
+    ]
+  },
+  {
+    "objectID": "zeitschichten.html#die-zeit-der-preußischen-herrschaft",
+    "href": "zeitschichten.html#die-zeit-der-preußischen-herrschaft",
+    "title": "Zeitschichten",
+    "section": "Die Zeit der preußischen Herrschaft",
+    "text": "Die Zeit der preußischen Herrschaft\nMit dem Wiener Kongress wurde Koblenz 1815 Teil der preußischen Monarchie. Die preußische Regierung bestimmte die Stadt zur Verwaltungshauptstadt der preußischen Rheinlande und baute sie unter Einbeziehung der umliegenden Höhenzüge und des Ehrenbreitsteins zu einer Festungs aus. So entwicklete sich Koblenz bis in die 1890er Jahre zu einer Militär- und Beamtenstadt. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 49.)\nWährend die Stadt einerseits als hochgerüstete Militärfestung und als Verwaltungszentrum den spätabsolutistischen Obrigkeitsstaat symbolisierte, entwickelte sie sich im Vormärz andererseits zur rheinischen Hochburg eines nach Rom orientierten Katholizismus. Grundlegende Spannungen zwischen preußischem Staat und Zivilgemeinde, zwischen rheinischem Katholizismus, Liberalismus und protestantischem Zentralstaat sowie zwischen Stadtbürgertum und proletarisch-demokratischen Partizipationsbewegungen prägten mehr als hundert Jahre lang die Geschichte der Stadt. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 50.)\nDie zahlreichen militärischen Institutionen und Soldaten beanspruchten auch im Stadtinnern viel Platz und eine große Zahl von Gebäuden. Von Anfang an mussten also in Koblenz die städtischen Interessen den militärischen weichen, wodurch das wirtschaftliche Gedeihen der Stadt entscheidend behindert wurde. Insbesondere beim Ankauf und der Beschlagnahme von großen Teilen des Stadtgebietes für de Festungsbau blieben Schwierigkeiten und Konflikte nicht aus. Einige Anwohner der Zollstraße waren zwar 1823 damit einverstanden, dass ihre Häuser fpr einen weiteren Mauerabschnitt am Rhein abgerissen werden mussten, forderten aber – statt einer finanziellen Entschädigung – dass die Regierung ihnen an geeigneter Stelle andere Häuser erbauen lasse. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 53.)\nFabriken, die mit dampfgetriebenen Maschinen und größeren Belegschaften produzierten, fehlten in der Stadt. Allein einige Tabakfabriken und die Blechlackfabrik con Hermann Josef Dietz sowie von Ferdinand und dessen Sohn Hubert Schaafhausen beschäftigten eine größere Zahl von Arbeitern. In den 1830er Jahren arbeiteten 70 und seit den 1840er Jahren 120 bis 150 Männer in der inzwischen erweiterten Blechwaren-, Steinpappe- und Lackierfabrik, die seit 1806 in der “Alten Burg” untergebracht war. Handwerkliche Produktion für den lokalen Markt und Kleinbetriebe bestimmten das Bild. Verwaltung, Garnison und Fremdenverkehr erforderten zugleich zahlreiche Hilfs- und gesindearbeiten und ließen eine große Nachfrage nach vielfältigen Dienstleistungen, Wohnungen und Gastwirtschaften entstehen. Die überlieferten preußischen Gewerbestatistiken von 1816/17 und 1849 zeigen, dass in der ersten Hälfte des 19. Jahrhunderts in Koblenz noch fast die Hälfte der Erwerbstätigen selbstständige Gewerbe- oder Handeltreibende, Beamte oder Rentner waren. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 59.)\nInstitutionen wie Zünfte und Klöster, die traditionell Sicherheit gewähren oder die Armen und Kranken versorgt hatten, waren zu Beginn des 19. Jahrhunderts weitgehend aufgelöst. Städtische und private Initiativen traten an ihre Stelle. In Koblenz machte sich vor allem die “katholische Junta”, wie der Kreis um Dietz von seinen Gegnern genannt wurde, um die Armen verdient. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 67.)\nNach jahrelangen zähen Verhandlungen gab das Kriegsministerium im März 1890 die gesamte Stadtbefestigung von Koblenz und Ehrenbreitstein und den Hauptabschnitt der Feste Franz auf. Damit wurde das ganze in der Rhein- und Moselebene gelegene Stadtgebiet von allen Baubeschränkungen befreit. Für die Stadt begann in politischer, sozialer und wirtschaftlicher Hinsicht ein neuer historischer Abschnitt. Die Bautätigkeit, die vor allem südlich der alten Stadt nach 1890 rasch einsetzte, veränderte das Erscheinungsbild von Koblenz grundlegend. Der Kölner Städteplaner Joseph Stübben (1845–1936) legte bereits im Januar 1889 einen Plan zur Erweiterung der Stadt nach Süden und nach Westen vor. Entsprechend anderer Stadtplanungen der Gründerzeit sah Stübben einerseits breite, gerade Straßen mit Pracht- und Alleencharakter vor, die in Verkehrsplätzen mit Fächer-, Stern-, oder Rechteckform münden sollten. Andererseits sollten monumentale Gebäude, ein neuer Hauptbahnhof und mehrere Kirchen, die die neuen Stadtteile gliedern und “Fernblicke” ermöglichen. Diese Planungen wurden nicht in vollem Umfang realisiert. Aber es war unübersehbar, dass die Koblenzer Stadterweiterung das gestärkte Selbstbewusstsein der wilhelminischen Gesellschaft zum Ausdruck brachte. Die eingeebneten Wälle und Festungswerke wurden in Anlagen und Ringstraßen verwandelt, die mit Monumentalbauten und architektonisch wirksamen Wohnhäusern besetzt wurden. In beeindruckenden Dimensionen waren mit einer Breite von 52 Metern der Kaiser-Wilhelm-Ring (heute: Friedrich-Ebert-Ring), aber auch der 1902 fertiggestellte neue Hauptbahnhof und die strenge neugotische St.-Josefs-Kirche mit ihrem enormen Nordturm ausgelegt. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 102.)\nDer größte neue Stadtteil, die Südliche Vorstadt, befriedigte bezeichnenderweise einerseits die Nachfrage der Oberschicht nacht repräsentatioven Villen und andererseits die Wohnraumbedürfnisse des “bessergestellten Mittelstandes”, wie es in einem städtischen Verwaltungsbericht für die Jahre 1902/1903 hieß. Gesunde und preiswerte Arbeiterwohnungen entstanden demgegenüber kaum. Die Wohnverhältnisse in der Altstadt verschlechterten sich vielmehr. Nach “angestellten Ermittlungen” bestätigte die Stadtverwaltung im Juli 1901, “dass trotz der starken Bautätigkeit der letzten Jahre, welche in den Vorstadtbezirken gesunde und schöne Wohnungen für den Mittelstand geschaffen” hatte, “für Arbeiter und kleine Beamte […] wenigen geschehen” war. Diese waren vielmehr “nach wie vor auf die eng bevölkerten Bezirke der Altstadt angewiesen.” (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 105.)\nDer enorme Bevölkerungszuwachs im späten 19. Jahrhundert stellte auch Koblenz vor die Notwendigkeit, eine Fülle neuer Aufgaben zu übernehmen. Zu den wichtigsten zählte die hygienische Vorsorge. Nachdem sich die Wasserqualität der innerstädtischen Brunnen zusehends verschlechtert hatte, baute man 1888 ein leistungsfähiges Wasserwerk. Auch der Verkehr wuchs und die Verkehrsbedingungen wurden moderner. Eine Koblenzer Straßenbahngesellschaft wurde 1884 als Privatunternehmen gegründet, das 1887 zwei Pferdebahnen auf einer Ost-West- und Nord-Süd-Linie betrieb. 1898/1900 ging das Unternehmen – im Gegensatz zur zögerlichen Stadtverwaltung – zum elektrischen Betrieb über und baute ihr gesamtes Liniennetz aus. Die Stadt wurde unübersehbar städtischer, kommerzieller, weniger traditionell, mobiler und dynamischer. Aber die soziale Reformbereitschaft auf kommunaler Ebene ging mit einer erheblichen politischen Illiberalität einher. (Quelle: Geschichte der Stadt Koblenz, Stuttgart 1993, S. 108-109.)",
+    "crumbs": [
+      "Home",
+      "Vorbereitung",
+      "Zeitschichten"
+    ]
+  },
+  {
+    "objectID": "jupyter/2024-05-08_Statistik.html",
+    "href": "jupyter/2024-05-08_Statistik.html",
+    "title": "Koblenz-Exkursion 2024",
+    "section": "",
+    "text": "# Erste Schritte // Warm-Up\nfrom collections import Counter\n\n# Beispielliste\ndata = ['A', 'B', 'A', 'C', 'A', 'B', 'D', 'A', 'B', 'C', 'A']\n\n# Verwende Counter, um die Häufigkeit der Elemente zu zählen. Warum Counter-Funktion? Mehr Infos hier: https://realpython.com/python-counter/\nfrequency = Counter(data)\n\n# Ausgabe der Häufigkeiten\nfor item, count in frequency.items():\n    print(f\"{item}: {count}\")\n\nA: 5\nB: 3\nC: 2\nD: 1"
+  }
+]
