@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a27b7c89e81222c2bfb25d12ad7f8344 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a27b7c89e81222c2bfb25d12ad7f8344" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a27b7c89e81222c2bfb25d12ad7f8344 = L.map(
+                "map_a27b7c89e81222c2bfb25d12ad7f8344",
+                {
+                    center: [50.357488840722326, 7.595841268231183],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2d840ad901efc44896ab971d800340ae = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_2d840ad901efc44896ab971d800340ae.addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            var marker_a1cdd50ff38507a5a8a9adbdf8c939b8 = L.marker(
+                [50.35834, 7.59015],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_a1cdd50ff38507a5a8a9adbdf8c939b8.bindTooltip(
+                `<div>
+                     Bhf Koblenz Stadtmitte
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_d0ff782c4bd1230081593c207fba8103 = L.polyline(
+                [[50.35834, 7.59015], [50.35722, 7.59175]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_d0ff782c4bd1230081593c207fba8103.bindTooltip(
+                `<div>
+                     Bhf Koblenz Stadtmitte to Löhrrondel
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_24a205a7d74f1a05d044dfd1faa8e7ad = L.marker(
+                [50.35722, 7.59175],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_24a205a7d74f1a05d044dfd1faa8e7ad.bindTooltip(
+                `<div>
+                     Löhrrondel
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_70fa65c13445f43886b4c7f95868bf1b = L.polyline(
+                [[50.35722, 7.59175], [50.35608, 7.59154]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_70fa65c13445f43886b4c7f95868bf1b.bindTooltip(
+                `<div>
+                     Löhrrondel to Pavillion
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_824526987da679cd3b17802bfad62491 = L.marker(
+                [50.35608, 7.59154],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_824526987da679cd3b17802bfad62491.bindTooltip(
+                `<div>
+                     Pavillion
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_0589a3b32342bd5e6437b637a50bae5a = L.polyline(
+                [[50.35608, 7.59154], [50.35584, 7.59235]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_0589a3b32342bd5e6437b637a50bae5a.bindTooltip(
+                `<div>
+                     Pavillion to Kreisverwaltungsamt Mayen-Koblenz
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_160c2b1b2dbb0cd07e3a0f1de8cb06d8 = L.marker(
+                [50.35584, 7.59235],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_160c2b1b2dbb0cd07e3a0f1de8cb06d8.bindTooltip(
+                `<div>
+                     Kreisverwaltungsamt Mayen-Koblenz
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_63f3317c57da1be177e9cb50f41b8378 = L.polyline(
+                [[50.35584, 7.59235], [50.35419, 7.59489]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_63f3317c57da1be177e9cb50f41b8378.bindTooltip(
+                `<div>
+                     Kreisverwaltungsamt Mayen-Koblenz to Luftschutzbunker
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ac184741fb9fa3002d144182cbd2b1a5 = L.marker(
+                [50.35419, 7.59489],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_ac184741fb9fa3002d144182cbd2b1a5.bindTooltip(
+                `<div>
+                     Luftschutzbunker
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_3a1c24b2682ec40977caa6831c1835d4 = L.polyline(
+                [[50.35419, 7.59489], [50.35541, 7.59456]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_3a1c24b2682ec40977caa6831c1835d4.bindTooltip(
+                `<div>
+                     Luftschutzbunker to Allianzhaus
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7161be87a4a22473879557bf1f7ea3de = L.marker(
+                [50.35541, 7.59456],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_7161be87a4a22473879557bf1f7ea3de.bindTooltip(
+                `<div>
+                     Allianzhaus
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_8e7857ffea91bf904f650567452103e3 = L.polyline(
+                [[50.35541, 7.59456], [50.35489, 7.59618]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_8e7857ffea91bf904f650567452103e3.bindTooltip(
+                `<div>
+                     Allianzhaus to Kaiserliche Oberpostdirektion
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_52e2dfc699efe305a42686fb0bb2ebcb = L.marker(
+                [50.35489, 7.59618],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_52e2dfc699efe305a42686fb0bb2ebcb.bindTooltip(
+                `<div>
+                     Kaiserliche Oberpostdirektion
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_0cf2a9dee545c92297f52dc870ab6b15 = L.polyline(
+                [[50.35489, 7.59618], [50.35821, 7.59888]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_0cf2a9dee545c92297f52dc870ab6b15.bindTooltip(
+                `<div>
+                     Kaiserliche Oberpostdirektion to Theater Koblenz
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2d96f2afebdc391a1e4be1df5ffb6cd6 = L.marker(
+                [50.35821, 7.59888],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_2d96f2afebdc391a1e4be1df5ffb6cd6.bindTooltip(
+                `<div>
+                     Theater Koblenz
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_021a5a07267b7a2a0f97a9535bc06a3d = L.polyline(
+                [[50.35821, 7.59888], [50.35862, 7.59888]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_021a5a07267b7a2a0f97a9535bc06a3d.bindTooltip(
+                `<div>
+                     Theater Koblenz to Clemensstraße, Wohnbebauung der 1950er
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74bc4dd3cc47fda9e49f2c13fe1592ac = L.marker(
+                [50.35862, 7.59888],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_74bc4dd3cc47fda9e49f2c13fe1592ac.bindTooltip(
+                `<div>
+                     Clemensstraße, Wohnbebauung der 1950er
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_a7a15c309e398f021466635594b96e49 = L.polyline(
+                [[50.35862, 7.59888], [50.35732492939022, 7.59921648700538]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_a7a15c309e398f021466635594b96e49.bindTooltip(
+                `<div>
+                     Clemensstraße, Wohnbebauung der 1950er to Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_761e2c2dfd7b3937e41c4e958ed6d084 = L.marker(
+                [50.35732492939022, 7.59921648700538],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_761e2c2dfd7b3937e41c4e958ed6d084.bindTooltip(
+                `<div>
+                     Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_2175a66c93fc2d441c3d1bec61531828 = L.polyline(
+                [[50.35732492939022, 7.59921648700538], [50.35992, 7.59804]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_2175a66c93fc2d441c3d1bec61531828.bindTooltip(
+                `<div>
+                     Ehem. Reichsbankfiliale (heute: Deutsche Bundesbank) to Gymnasialstraße 4–8
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_67125698d09b7e8d4edb7139fb57b916 = L.marker(
+                [50.35992, 7.59804],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_67125698d09b7e8d4edb7139fb57b916.bindTooltip(
+                `<div>
+                     Gymnasialstraße 4–8
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_ef262959f2d606cb969c1306802a23dd = L.polyline(
+                [[50.35992, 7.59804], [50.36026, 7.59892]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_ef262959f2d606cb969c1306802a23dd.bindTooltip(
+                `<div>
+                     Gymnasialstraße 4–8 to Jesuitenkirche
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d4bd93e7cb7da34b6411624f1f33e6ac = L.marker(
+                [50.36026, 7.59892],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_d4bd93e7cb7da34b6411624f1f33e6ac.bindTooltip(
+                `<div>
+                     Jesuitenkirche
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e5d0675c7a8906b04474d7eee5773f8c = L.polyline(
+                [[50.36026, 7.59892], [50.36105, 7.60058]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            poly_line_e5d0675c7a8906b04474d7eee5773f8c.bindTooltip(
+                `<div>
+                     Jesuitenkirche to Hochbunker Nagelsgasse
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f196cbc168fdf7fa82b6f2b1bbadea00 = L.marker(
+                [50.36105, 7.60058],
+                {}
+            ).addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+    
+            marker_f196cbc168fdf7fa82b6f2b1bbadea00.bindTooltip(
+                `<div>
+                     Hochbunker Nagelsgasse
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            tile_layer_2d840ad901efc44896ab971d800340ae.addTo(map_a27b7c89e81222c2bfb25d12ad7f8344);
+        
+</script>
+</html>
