@@ -14,6 +14,13 @@ title: "Objekte"
 
 
 ## Station 1: Löhrrondell und Löhr-Center
+Die heutige Löhrstraße war Teil im 2. und 3. Jahrhundert Teil des römischen Achsenkreuzes (Cardo/Decumanus). In Nord-Süd-Richtung verlaufender Abschnitt der antiken Fernstraße von Mainz nach Köln sowie antiker Handwerksbezirk. Laut älteren Quellen leitet sich der Name von den Lohegruben der Gerber ab, die ihre Werkstätten erst nach 1671 nach Lützelkoblenz verlegen mussten.
+Bereits bei der französischen Beschießung von 1688 gab es in der Löhrstraße schwere Schäden. 36 Häuser wurden sogar vollständig zerstört.<br> 
+Vor dem Zweiten Weltkrieg war die Straße nicht nur durch Barockbauten, sondern vor allem durch Kaufhausarchitektur des frühen 20. Jahrhundert geprägt. Bis auf das Gebäude Löhrstraße 2 zbd das Tappiser & Werner-Kaufhaus sowie zwei weitere Wohn- und Geschäftshäuser an der Ecke Altlöhrtor wurden bei dem Bombenangriffen von 1944 alle nennenswerten Gebäude in dieser Straße zerstört.<br>
+Ende 1996 musste dann auch noch der im Sinne der Neuen Sachlichkeit errichtete Kaufhausbau weichen. Die gesamte Löhrstraße ist seit 1975 Fußgängerzone.<br> 
+(Quelle: Denkmaltopographie Koblenz, S. 166.)
+
+
 „Am **Löhrrondell** ist die von 1900 bis 1903 erbaute neuromanische Herz-Jesu-Kirche stadtbildprägend. Ursprünglich befand sich in diesem Bereich ein Abschnitt der barocken Stadtbefestigung. Diese wurde im letzten Drittel des 18. Jahrhunderts aufgegeben. Die Bebauung setzte erst mit dem Aufschwung der Schloßstraße um 1850 ein. Die Originalbebauung wurde 1944 komplett zerstört. Lediglich das katholische Gotteshaus wurde in leicht veränderter Form wiederaufgebaut.
 Bis weit in die 1980er-Jahre hinein war das komplette Areal vor allem von Provisorien geprägt. Nachdem die Trümmer weggeräumt waren, entstand ein großer Parkplatz. Dieser verband das Löhrrondell mit der Fischelstraße, von der heute im Bereich der Weißer Gasse nur noch ein kurzes Teilstück erhalten ist. Die Fischelstraße, die ihren Namen von einem früheren Beigeordneten der Stadt hat, wurde einst Eisenbahnstraße genannt. Sie war ursprünglich eine wichtige Verbindung zum einstigen Rheinbahnhof. In der Fischelstraße, deren Bebauung ebenfalls 1944 in weiten Teilen zerstört wurde, gab es auch ein Hotel. Im Zuge der Neugestaltung der innerstädtischen Verkehrsachsen wurde der Straßenzug in den 1960er-Jahren in weiten Teilen beseitigt.
 Im Bereich des Löhrrondells und der angrenzenden Löhrstraße verlief die römische Fernstraße von Mainz nach Köln. Hier gab es nicht nur einen Handwerkerbezirk, sondern auch ein spätantik-frühmittelalterliches Gräberfeld, das 1990 bei Bauarbeiten entdeckt wurde. Komplett neu gestaltet wurde das Löhrrondell zur 2000-Jahr-Feier der Stadt Koblenz und zur Bundesgartenschau 2011." <br></br>[(Quelle Stadt Koblenz)](https://www.koblenz.de/leben-in-koblenz/kultur/stadtportraet/spurensuche/loehrrondell/)
@@ -43,32 +50,70 @@ Quelle: [KuLaDig, Kultur.Landschaft.Digital](https://www.google.com/url?sa=t&sou
 ## Station 3: Kreisverwaltungsamt Mayen-Koblenz
 ![Kreisverwaltung Mayen-Koblent](https://upload.wikimedia.org/wikipedia/commons/d/de/Bahnhofstra%C3%9Fe_9_%281%29.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/d/de/Bahnhofstra%C3%9Fe_9_%281%29.jpg" width=80% .lightbox}
 
+Aus Denkmalliste (2020):<br> (vor) Bahnhofstraße 9: skulpturengerahmter Torbogen des Kreishauses des Landkreises Mayen, 1903-05; zwei Löwenskulpturen,
+1912/13, Bildhauer Os Raber (1892–1947).
+
 ## Station 4: Luftschutzbunker
-![Luftschutzbunker](docs/img/Luftschutzbunker.png){alt="Luftschutzbunker, Ansicht Google Maps." width=80% .lightbox}
+![Luftschutzbunker](img/Luftschutzbunker.png){alt="Luftschutzbunker, Ansicht Google Maps." width=80% .lightbox}
 
 
 ## Station 5: Allianzhaus
 ![Allianzhaus](https://upload.wikimedia.org/wikipedia/commons/4/4c/Friedrich-Ebert-Ring_32-34.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/4/4c/Friedrich-Ebert-Ring_32-34.jpg width=80% .lightbox}
 
+Aus Denkmalliste (2020):<br> 
+Allianzhaus, 1954/55, Regierungsbaumeister Ludwig Goerz, Wiesbaden; Stahlbetonbau mit Rasterfassade und Stahlfenstern, tlw. travertinverkleidet, viergeschossiger Eckbau, im rechten Winkel anstoßender
+siebengeschossiger Querriegel, Flugdächer; im Inneren des Querriegels Wendeltreppe.
+
 ## Station 6: Kaiserliche Oberpostdirektion
 ![Kaiserliche Oberpostdirektion, 2013.](https://upload.wikimedia.org/wikipedia/commons/a/a0/Kaiserliche_Oberpostdirektion_02_Koblenz_2013.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/a/a0/Kaiserliche_Oberpostdirektion_02_Koblenz_2013.jpg" width=80% .lightbox}
+
+Aus Denkmalliste (2020):<br> (an) Friedrich-Ebert-Ring 14-20:
+ehem. Kaiserliche Oberpostdirektion; repräsentativer dreiflügeliger, viergeschossiger Baukomplex, sandstein-
+und muschelkalkquaderverkleidet, achteckiger Treppenturm mit neugotischen Motiven, um 1905; nach
+Entkernung 1987 nur Fassade erhalten
 
 
 ## Station 7: Theater Koblenz
 ![Stadttheater Koblenz, 2011.](https://upload.wikimedia.org/wikipedia/commons/e/ec/Theater_Koblenz_%282011-07-10_Sp%29.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/e/ec/Theater_Koblenz_%282011-07-10_Sp%29.jpg" width=80% .lightbox}
 
+Aus Denkmalliste (2020):<br>
+Deinhardplatz 2: 
+Stadttheater, zweieinhalbgeschossiger frühklassizistischer Putzbau, bez. 1787, Arch. Peter Joseph Krahe; Ausstattung.
+
 ## Station 8: Clemensstraße, Wohnbebauung 1950er
-![Clemensstraße, Google Streetview.](docs/img/Clemensstraße.png){alt="Clemensstraße,Google Streetview" width=80% .lightbox}
+![Clemensstraße, Google Streetview.](img/Clemensstraße.png){alt="Clemensstraße,Google Streetview" width=80% .lightbox}
 
 ## Station 9: Ehemalige Reichsbankfiliale
 ![Ehem. Reichsbankfiliale, heute: Deutsche Bundesbank, Filiale Koblenz, 2013.](https://upload.wikimedia.org/wikipedia/commons/0/00/Deutsche_bundesbank_filiale_koblenz.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Deutsche_bundesbank_filiale_koblenz.jpg" width=80% .lightbox}
 
+Aus Denkmalliste (2020):<br>
+Neustadt 6/7
+ehem. Reichsbankfiliale, palazzoartiger drei- bzw. viergeschossiger Repräsentativbau, tlw.
+tuffplattenverblendet, 1935-37, Arch. Heinrich Wolff, Berlin; in der Durchfahrt eingemauerte Votivtafel des
+Ritters Melchior Herr von Eltz und Langenau, bez. 1608
 
 ## Station 10: Gymnasialstraße 4–8
 ![Rathaus, Gymnasialstraße, 2013.](https://upload.wikimedia.org/wikipedia/commons/d/dd/Altstadt_Koblenz%2C_Rathausgeb%C3%A4ude_an_der_Gymnasialstra%C3%9Fe.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/d/dd/Altstadt_Koblenz%2C_Rathausgeb%C3%A4ude_an_der_Gymnasialstra%C3%9Fe.jpg" width=80% .lightbox}
 
+Aus Denkmalliste (2020):<br>(an) Gymnasialstraße 4/6/8
+Treppenhaus, verglaster Halbzylinder, des Wohn- und Geschäftshauses, 1954, Arch. Josef Heinrich
+
 ## Station 11: Jesuitenkirche
 ![Jesuitenkirche, 2011.](https://upload.wikimedia.org/wikipedia/commons/3/3a/Koblenz_im_Buga-Jahr_2011_-_Jesuitenkirche_01.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/3/3a/Koblenz_im_Buga-Jahr_2011_-_Jesuitenkirche_01.jpg" width=80% .lightbox}
 
+Aus Denkmalliste (2020):<br>
+Jesuitenplatz 2
+ehem. Jesuitenkloster und Jesuitenkolleg, drei eng miteinander verbundene Gebäudekomplexe,
+Spätrenaissance/Frühbarock, heute Rathaus I und II;
+ehem. Jesuitenkirche: Turm und Fassade der dreischiffigen Basilika, 1613-17, nach Kriegszerstörung
+kubischer Neubau aus Gussstein und Beton, 1958/59, Arch. Gottfried Böhm, Ausstattung;
+ehem. Klostergebäude: dreigeschossige Dreiflügelanlage, "Mittelbau" (Südtrakt) und Westflügel,
+Renaissancebauten, 1588/89 bzw. 1591/93, Arch. Georg Monreal, Plaidt, "Fürstenbau" (Ostflügel), 1670/71,
+Arch. wohl Johann Christoph Sebastiani, Ausstattung;
+ehem. Jesuitenkolleg: zwölfachsiger Putzbau mit turmartigen Eckaufsätzen, 1694-1701, Arch. wohl Johann
+Christoph Sebastiani, Portalschmuck von Lorenz Staudacher; Ausstattung; dreigeschossige
+Erweiterungstrakte, um 1910
+
 ## Station 12: Hochbunker Nagelsgasse
 ![Hochbunker Nagelsgasse, 1945.](https://upload.wikimedia.org/wikipedia/commons/8/82/Koblenz_%282%29_1945.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/8/82/Koblenz_%282%29_1945.jpg" width=80% .lightbox}
+
