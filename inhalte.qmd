@@ -1,5 +1,5 @@
 ---
-title: "Inhalte"
+title: "Objekte"
 ---
 
 ## Startpunkt: Bahnhof Stadtmitte 
@@ -41,21 +41,34 @@ Quelle: [KuLaDig, Kultur.Landschaft.Digital](https://www.google.com/url?sa=t&sou
 
 
 ## Station 3: Kreisverwaltungsamt Mayen-Koblenz
+![Kreisverwaltung Mayen-Koblent](https://upload.wikimedia.org/wikipedia/commons/d/de/Bahnhofstra%C3%9Fe_9_%281%29.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/d/de/Bahnhofstra%C3%9Fe_9_%281%29.jpg" width=80% .lightbox}
 
-## Luftschutzbunker
+## Station 4: Luftschutzbunker
+![Luftschutzbunker](docs/img/Luftschutzbunker.png){alt="Luftschutzbunker, Ansicht Google Maps." width=80% .lightbox}
 
-## Allianzhaus
 
-## Kaiserliche Oberpostdirektion
+## Station 5: Allianzhaus
+![Allianzhaus](https://upload.wikimedia.org/wikipedia/commons/4/4c/Friedrich-Ebert-Ring_32-34.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/4/4c/Friedrich-Ebert-Ring_32-34.jpg width=80% .lightbox}
 
-## Theater Koblenz
+## Station 6: Kaiserliche Oberpostdirektion
+![Kaiserliche Oberpostdirektion, 2013.](https://upload.wikimedia.org/wikipedia/commons/a/a0/Kaiserliche_Oberpostdirektion_02_Koblenz_2013.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/a/a0/Kaiserliche_Oberpostdirektion_02_Koblenz_2013.jpg" width=80% .lightbox}
 
-## Clemensstraße, Wohnbebauung 1950er
 
-## Ehemalige Reichsbankfiliale
+## Station 7: Theater Koblenz
+![Stadttheater Koblenz, 2011.](https://upload.wikimedia.org/wikipedia/commons/e/ec/Theater_Koblenz_%282011-07-10_Sp%29.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/e/ec/Theater_Koblenz_%282011-07-10_Sp%29.jpg" width=80% .lightbox}
 
-## Gymnasialstraße 4–8
+## Station 8: Clemensstraße, Wohnbebauung 1950er
+![Clemensstraße, Google Streetview.](docs/img/Clemensstraße.png){alt="Clemensstraße,Google Streetview" width=80% .lightbox}
 
-## Jesuitenkirche
+## Station 9: Ehemalige Reichsbankfiliale
+![Ehem. Reichsbankfiliale, heute: Deutsche Bundesbank, Filiale Koblenz, 2013.](https://upload.wikimedia.org/wikipedia/commons/0/00/Deutsche_bundesbank_filiale_koblenz.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Deutsche_bundesbank_filiale_koblenz.jpg" width=80% .lightbox}
 
-## Hochbunker Nagelsgasse
+
+## Station 10: Gymnasialstraße 4–8
+![Rathaus, Gymnasialstraße, 2013.](https://upload.wikimedia.org/wikipedia/commons/d/dd/Altstadt_Koblenz%2C_Rathausgeb%C3%A4ude_an_der_Gymnasialstra%C3%9Fe.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/d/dd/Altstadt_Koblenz%2C_Rathausgeb%C3%A4ude_an_der_Gymnasialstra%C3%9Fe.jpg" width=80% .lightbox}
+
+## Station 11: Jesuitenkirche
+![Jesuitenkirche, 2011.](https://upload.wikimedia.org/wikipedia/commons/3/3a/Koblenz_im_Buga-Jahr_2011_-_Jesuitenkirche_01.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/3/3a/Koblenz_im_Buga-Jahr_2011_-_Jesuitenkirche_01.jpg" width=80% .lightbox}
+
+## Station 12: Hochbunker Nagelsgasse
+![Hochbunker Nagelsgasse, 1945.](https://upload.wikimedia.org/wikipedia/commons/8/82/Koblenz_%282%29_1945.jpg){alt="https://upload.wikimedia.org/wikipedia/commons/8/82/Koblenz_%282%29_1945.jpg" width=80% .lightbox}
