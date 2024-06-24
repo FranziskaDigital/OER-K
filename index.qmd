@@ -1,7 +1,7 @@
 ---
 title: "Mapping Koblenz"
 ---
-Diese Seite dokumentiert die Exkursion "Mapping Koblenz" im Sommersemester 2024 an der Hochschule Mainz. Die Exkursion hat im Rahmen des Moduls "Raumbezogene Forschung im interdisziplinären Kontext" stattgefunden. Teilnehmende waren Master-Studierende aus der "Geoinformatik und Vermessung" sowie aus dem hochschulübergreifenden Studiengang "Digitale Methodik in den Geistes- und Kulturwissenschaften".
+Diese Seite dokumentiert die Exkursion „Mapping Koblenz“ im Sommersemester 2024 an der Hochschule Mainz. Die Exkursion hat im Rahmen des Moduls „Raumbezogene Daten im interdisziplinären Kontext“ stattgefunden. Teilnehmende waren Master-Studierende aus der „Geoinformatik und Vermessung“ sowie aus dem hochschulübergreifenden Studiengang „Digitale Methodik in den Geistes- und Kulturwissenschaften“.
 
 Alle Daten und weiteren Informationen zu dem Projekt sind unter: <https://database.factgrid.de/wiki/FactGrid:Mapping_Koblenz> zu finden.
 <br></br>
